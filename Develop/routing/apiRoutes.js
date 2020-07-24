@@ -1,11 +1,22 @@
 var fs = require("fs");
+var path = require('path')
 
-fs.readFile("../db/db.json", "utf8", (error, data) => {
 
-    if (error) {
-      return console.log(error);
-    }
-  
-    console.log(data);
-  
-  });
+
+module.exports = function(app) {
+
+  var dbjson = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+
+    app.get("/api/notes", function(req, res) {
+      res.json(dbjson);
+    });
+
+    app.post("/api/notes", function(req, res) {
+    
+    });
+        
+
+   
+
+}
+

@@ -1,5 +1,5 @@
 var express = require("express");
-
+var path = require('path')
 
 var app = express();
 
@@ -13,9 +13,11 @@ app.use(express.json());
 
 
 require("./routing/apiRoutes")(app);
-require("./routing/htmlRoutes")(app);
+require("./routing/htmlRoutes.js")(app);
 
 
 app.listen(PORT, function() {
    console.log("Server listening on: http://localhost:" + PORT);
 });
+
+
